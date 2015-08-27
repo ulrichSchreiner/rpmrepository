@@ -7,7 +7,8 @@ if [ ! -d "$REPODIR" ]; then
 	mkdir -p $WWWDIR
 	mkdir $REPODIR
 	cd $REPODIR
-	git init --bare
+	git init --bare --template /src/layout
 	cp -f /src/updaterepo.sh hooks/post-receive
 	chmod +x hooks/post-receive
+	/src/updaterepo.sh
 fi
